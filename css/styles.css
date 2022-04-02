@@ -1,0 +1,328 @@
+.body {
+    background: url('../img/pattern_02.png') repeat;
+    font-family: 'Bebas Neue';
+    font-size: 40px;
+    color: #505050;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+/* луна */
+.moon {
+    padding: 30px 0px;
+}
+
+.moon__container {
+    width: 1400px;
+    background: #000;
+    border-radius: 10px;
+    border: 2px solid rgb(61, 61, 61);
+    margin: 0 auto;
+    padding: 50px 30px;
+    transition: all 0.2s ease 0s;
+}
+
+.moon__container:hover {
+    /* transform: scale(0.99); */
+    box-shadow: 5px 5px 30px rgba(8, 8, 8, 0.521);
+    transition: all 0.3s ease 0s;
+    color: #a5a5a5;
+}
+
+.moon__title {
+    text-align: right;
+    margin: 0 0 25px 0;
+}
+
+.moon__swing-box {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: relative;
+    animation: motion 4.5s ease-in-out 1 normal running 3s forwards;
+}
+
+/* покачивание */
+@keyframes motion {
+    0% {
+        transform: translateX(0px);
+    }
+
+    16.5% {
+        transform: translateX(-45px);
+    }
+
+    33% {
+        transform: translateX(-5px);
+    }
+
+    49.5% {
+        transform: translateX(-32px);
+    }
+
+    66% {
+        transform: translateX(-14px);
+    }
+
+    100% {
+        transform: translateX(-22px);
+    }
+
+}
+
+.moon__motion-box {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: relative;
+    animation: moon-motion 3s ease-in-out 1 normal running 0s forwards, opasity 2s ease 1 normal running 0s forwards;
+}
+
+/* движение вправо */
+@keyframes moon-motion {
+    0% {
+        left: 0;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        left: 540px;
+        transform: rotate(70deg);
+    }
+}
+
+/* появление */
+@keyframes opasity {
+    0% {
+        opacity: 0.2;
+    }
+
+    80% {
+        opacity: 1;
+    }
+}
+
+.moon__circle {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    /* overflow: hidden; */
+    background: url('../img/moon.jpg') center / 550px no-repeat;
+    animation: swing 4.5s ease-in-out 1 normal running 3s forwards;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+/* вращение */
+@keyframes swing {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    16.5% {
+        transform: rotate(-10deg);
+    }
+
+    33% {
+        transform: rotate(-3deg)
+    }
+
+    49.5% {
+        transform: rotate(-8deg)
+    }
+
+    66% {
+        transform: rotate(-5deg)
+    }
+
+    100% {
+        transform: rotate(-7deg)
+    }
+
+}
+
+.moon__circle::before {
+    content: '';
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: #000;
+    box-shadow: 5px 5px 10px 10px #000, -5px -5px 10px 10px #000;
+    position: absolute;
+    opacity: 0.90;
+    top: 0;
+    left: 0;
+    animation: shadow-motion 2.5s ease-in-out 1 normal running 0s forwards;
+}
+
+/* движение тени */
+@keyframes shadow-motion {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(-100px, 0px);
+    }
+}
+
+/* маятник */
+.pendulum {
+    padding: 30px 0px
+}
+
+.pendulum__container {
+    width: 1400px;
+    background: #000;
+    border-radius: 10px;
+    border: 2px solid rgb(61, 61, 61);
+    margin: 0 auto;
+    padding: 50px 30px;
+    transition: all 0.2s ease 0s;
+}
+
+.pendulum__container:hover {
+    box-shadow: 5px 5px 30px rgba(8, 8, 8, 0.521);
+    transition: all 0.3s ease 0s;
+    color: #a5a5a5;
+}
+
+.pendulum__title {
+    text-align: right;
+    margin: 0 0 25px 0;
+}
+
+.device {
+    position: relative;
+    width: 360px;
+    margin: 0 auto;
+    animation: opasity-device 3s ease 1 normal running 0s forwards;
+}
+
+/* появление маятника */
+@keyframes opasity-device {
+    0% {
+        opacity: 0.2;
+    }
+
+    80% {
+        opacity: 1;
+    }
+}
+
+.device__item {
+    width: 90px;
+    height: 498px;
+    /* border: 1px solid #fff; */
+}
+
+.device__bolt {
+    width: 28px;
+    height: 28px;
+    background: url('../img/small_circle.png') 50% / 28px no-repeat;
+    position: relative;
+    z-index: 2;
+    top: 2px;
+    left: 31px;
+}
+
+.device__kernel {
+    width: 15px;
+    height: 380px;
+    /* border: 1px solid #fff; */
+    background: url('../img/kernel.jpg') 0 0/100% 100% no-repeat;
+    position: relative;
+    left: 37.5px;
+}
+
+.device__circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    /* border: 1px solid #fff; */
+    background: url('../img/circle.png') 50% / 90px no-repeat;
+}
+
+.device__item_one {
+    animation: pendulum-one 1.2s ease-in infinite alternate-reverse running 0s forwards;
+}
+
+/* первый шар */
+@keyframes pendulum-one {
+    0% {
+        transform: rotate(30deg);
+        transform-origin: top center;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        transform-origin: top center;
+    }
+
+    100% {
+        transform: rotate(0deg);
+        transform-origin: top center;
+    }
+
+}
+
+.device__item_two {
+    position: absolute;
+    top: 0px;
+    left: 90px;
+}
+
+.device__item_three {
+    position: absolute;
+    top: 0px;
+    left: 180px;
+}
+
+.device__item_four {
+    position: absolute;
+    top: 0px;
+    left: 270px;
+    animation: pendulum-four 1.2s ease-in infinite alternate-reverse running 1.2s forwards;
+}
+
+/* четвертый шар */
+@keyframes pendulum-four {
+    0% {
+        transform: rotate(-30deg);
+        transform-origin: top center;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        transform-origin: top center;
+    }
+
+    100% {
+        transform: rotate(0deg);
+        transform-origin: top center;
+    }
+}
+
+.footer__container {
+    width: 1400px;
+    margin: 0 auto;
+    padding: 30px 30px 50px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.footer__signature {
+    display: inline-block;
+    padding: 20px;
+    transition: all 0.2s ease 0s;
+    color: #505050;
+}
+
+.footer__signature:hover {
+    color: #a5a5a5;
+    transition: all 0.3s ease 0s;
+}
